@@ -12,7 +12,7 @@ def add_commit_to_repo(repo: GitRepository) -> str:
     :return Hash of the dummy commit.
     """
     clone_folder = repo.get_clone_location()
-    subprocess.check_call("cd %s && git commit --allow-empty -m \"Test\"" % clone_folder, shell=True)
+    subprocess.check_output("cd %s && git commit --allow-empty -m \"Test\"" % clone_folder, shell=True)
     return repo.get_current_rev()
 
 
